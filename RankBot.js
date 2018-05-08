@@ -29,48 +29,16 @@ client.on("presenceUpdate", (newMember) => {
 		if(newMember.presence.activity.name == "SpeedRunners"){
 
 			//get rolename from smallText
-			console.log(newMember.presence.activity.assets.smallText)
+			console.log("smallText = " + newMember.presence.activity.assets.smallText)
 			var newRole = newMember.presence.activity.assets.smallText.slice(" League", -7)
 
-			//var currentRole = ""
 
-
-			//check if user changed role (super messy but js for loops are weird)
-			/*
-			if(newMember.roles.has(roleIdList[0])){
-				currentRole = roleList[0]
-			}
-			if(newMember.roles.has(roleIdList[1])){
-				currentRole = roleList[1]
-			}
-			if(newMember.roles.has(roleIdList[2])){
-				currentRole = roleList[2]
-			}
-			if(newMember.roles.has(roleIdList[3])){
-				currentRole = roleList[3]
-			}
-			if(newMember.roles.has(roleIdList[4])){
-				currentRole = roleList[4]
-			}
-			if(newMember.roles.has(roleIdList[5])){
-				currentRole = roleList[5]
-			}
-			if(newMember.roles.has(roleIdList[6])){
-				currentRole = roleList[6]
-			}
-			if(newMember.roles.has(roleIdList[7])){
-				currentRole = roleList[7]
-			}
-			if(newMember.roles.has(roleIdList[8])){
-				currentRole = roleList[8]
-			}
-			*/
-
-
-			//remove all rank roles them add new role
-			
+			//remove all rank roles them add new role (messy code; fix later)
+			console.log("newRole (1) = " + newRole)
 			if(newRole != null && newRole != ""){
-				newMember.roles.remove(roleIdList)
+				console.log("newRole (2) = " + newRole)
+				newMember.roles.remove(roleList)
+				console.log(newMember.guild.roles.map(r => r.id + " | " + r.name))
 				console.log("removed all rank roles")
 
 
@@ -112,15 +80,10 @@ client.on("presenceUpdate", (newMember) => {
 					console.log("added to " + roleIdList[8] + " " + roleList[8])
 				}
 			}
-			//send announcement message if user changed rank. format of "@user is now NewRank! Congrats!"
-			//if(newRole != currentRole){
-				//roleAnnouncementChannel.send("<@!" + newMember.id + ">" + " is now " + newRole + "! Congrats!")
-			//}
-
 		}
 	}
 	
 
 });
 
-client.login("NDE3NDA4MTIwNzQ3MzI3NTAw.Dc9_5Q.YnkmoKKqT4YYrO6uvD89dvdYckg")
+client.login("token-here")
