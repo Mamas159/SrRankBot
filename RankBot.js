@@ -37,7 +37,7 @@ client.on("presenceUpdate", (newMember) => {
 			console.log("newRole (1) = " + newRole)
 			if(newRole != null && newRole != ""){
 				console.log("newRole (2) = " + newRole)
-				newMember.roles.remove(roleList)
+				newMember.roles.remove(roleIdList)
 				console.log(newMember.guild.roles.map(r => r.id + " | " + r.name))
 				console.log("removed all rank roles")
 
@@ -86,4 +86,4 @@ client.on("presenceUpdate", (newMember) => {
 
 });
 
-client.login("token-here")
+client.login("token here");
