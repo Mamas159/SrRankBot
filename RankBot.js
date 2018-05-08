@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-
+const dotenv = require('dotenv');
+dotenv.config();
 const roleList = ["Entry", "Beginner", "Advanced", "Expert", "Bronze", "Silver", "Gold", "Platinum", "Diamond"];
 const roleIdList = ["442973391167815680", "442973443252551681", "442973472373735424", "442973513943482389", "442973557237088265", "442973638338281492", "442973701462556672", "442973769686843392", "442973797713182721"];
 
@@ -25,10 +26,11 @@ client.on("presenceUpdate", (newMember) => {
 	console.log("presence update for: " + newMember);
 
 	//check if game and assets is correct
-	if (newMember.presence.activity != null
-		&& newMember.presence.activity.assets != null
-		&& newMember.presence.activity.assets.smallText != null
-		&& newMember.presence.activity.name === 'SpeedRunners') {
+	let activity = newMember.presence;
+	if (activity != null
+		&& activity.assets != null
+		&& activity.assets.smallText != null
+		&& activity.name === 'SpeedRunners') {
 
 		//get rolename from smallText
 		console.log("smallText = " + newMember.presence.activity.assets.smallText);
@@ -55,4 +57,4 @@ client.on("presenceUpdate", (newMember) => {
 	}
 });
 
-client.login("token here");
+client.login(process.env.BOT_TOKEN);
