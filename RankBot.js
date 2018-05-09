@@ -1,3 +1,4 @@
+//@ts-check
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const dotenv = require('dotenv');
@@ -24,6 +25,7 @@ client.on("presenceUpdate", (newMember) => {
 	//log presence updates
 	console.log(".");
 	console.log("presence update for: " + newMember);
+	console.log(newMember.presence);
 
 	//check if game and assets is correct
 	let activity = newMember.presence;
@@ -33,8 +35,8 @@ client.on("presenceUpdate", (newMember) => {
 		&& activity.name === 'SpeedRunners') {
 
 		//get rolename from smallText
-		console.log("smallText = " + newMember.presence.activity.assets.smallText);
-		var newRole = newMember.presence.activity.assets.smallText.slice(" League", -7);
+		console.log("smallText = " + activity.assets.smallText);
+		var newRole = activity.assets.smallText.slice(" League", -7);
 
 
 		//remove all rank roles them add new role (messy code; fix later)
