@@ -1,7 +1,5 @@
 //@ts-check <- this is for vscode
 const Discord = require("discord.js");
-const dotenv = require('dotenv');
-dotenv.config();
 const client = new Discord.Client();
 const roleList = ["Entry", "Beginner", "Advanced", "Expert", "Bronze", "Silver", "Gold", "Platinum", "Diamond"];
 const roleIdList = ["442973391167815680", "442973443252551681", "442973472373735424", "442973513943482389", "442973557237088265", "442973638338281492", "442973701462556672", "442973769686843392", "442973797713182721"];
@@ -70,4 +68,4 @@ client.on("presenceUpdate", async (newMember) => {
 	}
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login("token here");
